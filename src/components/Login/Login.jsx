@@ -1,8 +1,8 @@
-import { useState } from "react";
+
 import React from "react";
 import { Form, useActionData, useNavigation, redirect } from "react-router-dom";
-import AxiosWrapper from "../../services/BaseService";
-const axios = new AxiosWrapper();
+// import AxiosWrapper from "../../services/BaseService";
+// const axios = new AxiosWrapper();
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -28,7 +28,7 @@ export async function action({ request }) {
   const pathname =
     new URL(request.url).searchParams.get("redirectTo") || "/protected";
   try {
-    const user = await fakeLoginUser({ email, password });
+    await fakeLoginUser({ email, password });
     return redirect(pathname);
   } catch (err) {
     return err.message;
