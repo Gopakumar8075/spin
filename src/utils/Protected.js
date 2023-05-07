@@ -1,5 +1,5 @@
 import React from "react";
-import { redirect, Outlet } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
 import { requireAuth } from "./requireAuth";
 
 export async function loader({ request }) {

@@ -1,10 +1,10 @@
 import "./App.css";
 import {
-  BrowserRouter,
+  // BrowserRouter,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
-  Routes,
+  // Routes,
   Route,
 } from "react-router-dom";
 import Layout from "./pages/Layout";
