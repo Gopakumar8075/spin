@@ -26,7 +26,7 @@ export async function action({ request }) {
   const password = formData.get("password");
 
   const pathname =
-    new URL(request.url).searchParams.get("redirectTo") || "/protected";
+    new URL(request.url).searchParams.get("redirectTo") || "/game";
   try {
     const user = await fakeLoginUser({ email, password });
     return redirect(pathname);
@@ -52,81 +52,99 @@ const Login = () => {
 
   return (
     <>
-      <section className="gradient-form h-full bg-neutral-200 dark:bg-neutral-700">
-        <div className="container h-full bg-white ">
-          <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
-            <div className="w-full">
-              <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
-                <div className="g-0 lg:flex lg:flex-wrap">
-                  <div className="px-4 md:px-0 lg:w-6/12">
-                    <div className="md:mx-6 md:p-12">
-                      <div className="text-center">
-                        <img
-                          className="mx-auto w-48"
-                          src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                          alt="logo"
-                        />
-                        <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
-                          We are The Lotus Team
-                        </h4>
-                      </div>
-
-                      <Form
-                        method="post"
-                        replace
-                        className="h-full flex flex-col gap-2 items-center justify-center"
-                      >
-                        {errorMessage && (
-                          <h4 className="red">{errorMessage}</h4>
-                        )}
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="Email address"
-                          className="w-[50%] h-[35px] rounded-xl"
-                        />
-                        <br />
-                        <input
-                          type="password"
-                          name="password"
-                          placeholder="Password"
-                          className="w-[50%] h-[35px] rounded-xl"
-                        />
-                        <br />
-                        <button
-                          className="bg-black w-[50%] h-[35px] rounded-xl"
-                          disabled={navigation.state === "submitting"}
-                        >
-                          {navigation.state === "submitting"
-                            ? "Logging in ..."
-                            : "Log in"}
-                        </button>
-                      </Form>
-                    </div>
-                  </div>
-
-                  <div
-                    className="flex h-[93vh] items-center rounded-b-lg lg:w-6/12 lg:rounded-r-lg lg:rounded-bl-none"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)",
-                    }}
+      <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+          <a
+            href="#"
+            class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+          >
+            <img
+              class="w-8 h-8 mr-2"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+              alt="logo"
+            />
+            Flowbite
+          </a>
+          <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                Sign in to your account
+              </h1>
+              <Form method="post" replace className="space-y-4 md:space-y-6">
+                {errorMessage && <h4 className="red">{errorMessage}</h4>}
+                <label
+                  htmlFor="email"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Your email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email address"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+                <br />
+                <div>
+                  <label
+                    for="password"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    <div className="px-4 py-6 text-white md:mx-6 md:p-12">
-                      <h4 className="mb-6 text-xl font-semibold">
-                        We are more than just a company
-                      </h4>
-                      <p className="text-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex
-                        ea commodo consequat.
-                      </p>
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  />
+                </div>
+                <br />
+                <button
+                  className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  disabled={navigation.state === "submitting"}
+                >
+                  {navigation.state === "submitting"
+                    ? "Logging in ..."
+                    : "Log in"}
+                </button>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                      <input
+                        id="remember"
+                        aria-describedby="remember"
+                        type="checkbox"
+                        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                        required=""
+                      />
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label
+                        for="remember"
+                        class="text-gray-500 dark:text-gray-300"
+                      >
+                        Remember me
+                      </label>
                     </div>
                   </div>
+                  <a
+                    href="#"
+                    class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  >
+                    Forgot password?
+                  </a>
                 </div>
-              </div>
+                <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                  Don’t have an account yet?
+                  <a
+                    href="#"
+                    class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  >
+                    Sign up
+                  </a>
+                </p>
+              </Form>
             </div>
           </div>
         </div>
