@@ -2,76 +2,85 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
-  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [navbar, setNavbar] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
-  };
+ 
 
   return (
-    <header className="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-2">
-      <h1 className="w-3/12">
-        <a href="/">
-          <svg xmlns="http://www.w3.org/2000/svg" width="200" height="50" viewBox="0 0 200 50">
-            <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fontSize="24" fontWeight="bold">
-              Spin It
-            </text>
-            {/* <image href="logo.png" x="10" y="10" width="30" height="30" /> */}
-          </svg>
-        </a>
-      </h1>
-
-      <nav
-        className={`nav font-semibold text-lg ${
-          isMenuOpen ? 'block' : 'hidden'
-        } lg:flex lg:items-center lg:w-auto`}
-      >
-        <ul className="flex flex-col lg:flex-row items-center">
-          <li className="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
-            <Link to="/" className="hover:text-gray-300">
+    <nav className="w-full bg-white shadow">
+    <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+        <div>
+            <div className="flex items-center justify-between py-3 md:py-5 md:block">
+                <a href="">
+                    <h2 className="text-2xl font-bold">SPIN IT</h2>
+                </a>
+                <div className="md:hidden">
+                    <button
+                        className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                        onClick={() => setNavbar(!navbar)}
+                    >
+                        {navbar ? (
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="w-6 h-6"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clipRule="evenodd"
+                                />
+                            </svg>
+                        ) : (
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="w-6 h-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                strokeWidth={2}
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M4 6h16M4 12h16M4 18h16"
+                                />
+                            </svg>
+                        )}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div
+                className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+                    navbar ? "block" : "hidden"
+                }`}
+            >
+                <ul    onClick={() => setNavbar(!navbar)} className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                    <li className="text-gray-600 hover:text-blue-600">
+                    <Link to="/" className="hover:text-gray-300">
               Home
+          </Link>
+                    </li>
+                    <li className="text-gray-600 hover:text-blue-600">
+                    <Link to="/profile" className="hover:text-gray-300">
+               Profile
             </Link>
-          </li>
-          <li className="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-            <Link to="/profile" className="hover:text-gray-300">
-              Profile
-            </Link>
-          </li>
-          <li className="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-            <Link to="/game" className="hover:text-gray-300">
-              Game
-            </Link>
-          </li>
-        </ul>
-      </nav>
-
-      <div className="w-3/12 flex justify-end lg:hidden">
-        <button
-          className="text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800"
-          onClick={toggleMenu}
-        >
-          <svg
-            className="h-8 w-8 fill-current"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {isMenuOpen ? (
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M4.5 4H19.5V6H4.5V4ZM4.5 10H19.5V12H4.5V10ZM19.5 18H4.5V16H19.5V18Z"
-              />
-            ) : (
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M3 6H21V8H3V6ZM3 12H21V14H3V12ZM3 18H21V20H3V18Z"
-              />
-            )}
-          </svg>
-        </button>
-      </div>    
-            </header>
+                    </li>
+                    <li className="text-gray-600 hover:text-blue-600">
+                    <Link to="/game" className="hover:text-gray-300">
+               Game
+             </Link>
+                    </li>
+                 
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+  
             );
             };
             
