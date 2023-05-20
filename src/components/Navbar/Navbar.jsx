@@ -60,9 +60,9 @@ const NavBar = () => {
             >
                 <ul    onClick={() => setNavbar(!navbar)} className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                     <li className="text-gray-600 hover:text-blue-600">
-                    <Link to="/" className="hover:text-gray-300">
+                    {/* <Link to="/" className="hover:text-gray-300">
               Home
-          </Link>
+          </Link> */}
                     </li>
                     <li className="text-gray-600 hover:text-blue-600">
                     <Link to="/profile" className="hover:text-gray-300">
