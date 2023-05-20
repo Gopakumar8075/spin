@@ -6,7 +6,7 @@ const Layout = () => {
   return (
     <>
 <NavBar/>
-      <main>
+      <main className="bodyparams">
         <Outlet />
       </main>
 <Footer/>

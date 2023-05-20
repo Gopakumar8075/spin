@@ -18,4 +18,159 @@ code {
 body {
   background: #262626;
   /* color: white; */
+  
 }
+
+
+.quadrant {
+  width: 50%;
+  height: 50%;
+  box-sizing: border-box;
+}
+
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  animation: rotate 12s linear infinite; /* Add this line to enable the rotation animation */
+  transform-origin: center; /* Add this line to set the transform origin */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* Background gradient */
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #0000ff, #000);
+}
+
+/* Game title */
+.game-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Circle container */
+.circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Quadrant container */
+.quadrant-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Quadrant */
+.quadrant {
+  width: 50%;
+  height: 50%;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+}
+
+/* Quadrant hover effect */
+.quadrant:hover {
+  transform: scale(1.1);
+}
+
+/* Quadrant click effect */
+.quadrant:active {
+  transform: scale(0.9);
+}
+/* Selected quadrant */
+/* Selected quadrant */
+.selected {
+  border: 2px solid #ff0;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+  transform: scale(1.1);
+}
+.circle.disable-quadrants .quadrant {
+  pointer-events: none; /* Disable pointer events for unselected quadrants */
+}
+
+.timer {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation: timerAppear 0.5s ease-in-out;
+}
+
+@keyframes timerAppear {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.timer-flashing {
+  animation: timerFlashing 1s infinite;
+}
+
+@keyframes timerFlashing {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* .circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+} */
