@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Form, useActionData, useNavigation, redirect } from "react-router-dom";
 // import AxiosWrapper from "../../services/BaseService";
@@ -52,24 +51,18 @@ const Login = () => {
 
   return (
     <>
-      <section class="bg-gray-50 dark:bg-gray-900">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <a
-            href="#"
-            class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
-          >
-            <img
-              class="w-8 h-8 mr-2"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
-              alt="logo"
-            />
-            Flowbite
-          </a>
-          <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Sign in to your account
-              </h1>
+      <section class="h-screen p-20">
+        <div class="h-full">
+          <div class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-evenly">
+            <div class="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
+              <img
+                src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                class="w-full"
+                alt="Sample image"
+              />
+            </div>
+
+            <div class="mb-12 md:mb-0 md:w-8/12 lg:w-3/12 xl:w-3/12">
               <Form method="post" replace className="space-y-4 md:space-y-6">
                 {errorMessage && <h4 className="red">{errorMessage}</h4>}
                 <label
@@ -101,7 +94,7 @@ const Login = () => {
                 </div>
                 <br />
                 <button
-                  className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  className="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                   disabled={navigation.state === "submitting"}
                 >
                   {navigation.state === "submitting"
